@@ -1,0 +1,51 @@
+# ROS 2 编译产物（必须忽略，体积大且可重建）
+build/
+install/
+log/
+devel/
+
+# 编译生成的文件
+*.o
+*.so
+*.a
+*.exe
+*.out
+*.bin
+
+# CMake 临时文件
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+# 依赖与第三方库
+node_modules/
+vendor/
+third_party/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# VSCode 配置（本机设置，不影响别人）
+.vscode/
+*.code-workspace
+
+# Python 缓存文件
+__pycache__/
+*.pyc
+*.pyo
+
+# 日志、临时文件与 ROS bag
+*.log
+*.ros
+*.bag
+*.bag.active
+tmp/
+temp/
+
+# 敏感配置（绝对不要上传密钥/密码）
+.env
+*.local.json
+config/secrets.yaml

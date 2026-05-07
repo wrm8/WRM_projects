@@ -1,0 +1,47 @@
+cmake_minimum_required(VERSION 3.8)
+project(radar_pkg)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# 查找依赖
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+# 生成消息
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "msg/RadarTarget.msg"
+  "msg/RadarTargetArray.msg"
+  DEPENDENCIES
+)
+
+# 创建可执行文件
+add_executable(radar_node src/radar_node.cpp)
+
+# 链接依赖
+target_include_directories(radar_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+ament_target_dependencies(radar_node
+  rclcpp
+  sensor_msgs
+  rosidl_default_generators
+)
+
+# 安装
+install(TARGETS radar_node
+  DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME})
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+ament_package()

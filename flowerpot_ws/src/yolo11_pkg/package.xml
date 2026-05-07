@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>yolo11_pkg</name>
+  <version>0.0.0</version>
+  <description>YOLO11 detection package for ROS2</description>
+  <maintainer email="wrm@todo.todo">wrm</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- 构建依赖 -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <!-- 构建和运行依赖 -->
+  <depend>rclpy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>yolo11_msgs</depend>
+
+  <!-- Python 运行时依赖 -->
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>python3-onnxruntime</exec_depend>
+  <exec_depend>python3-pyaml</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

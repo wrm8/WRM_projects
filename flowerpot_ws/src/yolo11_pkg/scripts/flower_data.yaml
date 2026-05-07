@@ -1,0 +1,9 @@
+path: D:/研究生/搬花机器人/software/视觉/YOLOv11/ultralytics-main/ultralytics-main/flower_data # 注意修改自己NEU-DET数据集的路径
+train: train/images  # train images
+val: val/images  # val images
+test: test/images  # test images
+ 
+# Classes
+ 
+names:
+  0: flowerpot
